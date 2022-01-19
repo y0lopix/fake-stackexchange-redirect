@@ -23,7 +23,9 @@ For other browsers, the unsigned extension is also available in the [releases](h
 - [Oxipng](https://github.com/shssoichiro/oxipng) (to optimize icons)
 - Inkscape (to create PNG icons for Chromium browsers)
 - Info-ZIP's Zip (to pack files in a zip file)
-- web-ext (to check the validity of the source)
+- [terser](https://github.com/terser/terser) (to minify JS files)
+- [jq](https://github.com/stedolan/jq) (to minify JSON files)
+- [web-ext](https://github.com/mozilla/web-ext) (to check the validity of the source)
 
 ### Build the extension
 
