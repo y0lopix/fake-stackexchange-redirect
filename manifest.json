@@ -1,0 +1,25 @@
+{
+	"manifest_version": 2,
+	"name": "Fake StackOverflow redirect",
+	"version": "1.0.0",
+	"description": "Redirect fake websites translating StackOverflow questions like QAStack to the real official website",
+	"icons": {
+		"48": "icon.svg",
+		"96": "icon.svg"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"*://*.qastack.fr/*"
+			],
+			"js": [
+				"main.js"
+			]
+		}
+	],
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "fake-stackoverflow-redirect@yolopix.net"
+		}
+	}
+}
