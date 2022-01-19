@@ -10,11 +10,26 @@
 	"content_scripts": [
 		{
 			"matches": [
-				"*://*.qastack.fr/*"
+				"*://qastack.fr/*/*/*",
+				"*://qastack.ru/*/*/*",
+				"*://qastack.mx/*/*/*",
+				"*://qastack.cn/*/*/*",
+				"*://qastack.com.br/*/*/*",
+				"*://qastack.it/*/*/*",
+				"*://qastack.vn/*/*/*",
+				"*://qastack.com.de/*/*/*",
+				"*://qa-stack.pl/*/*/*",
+				"*://qastack.in.th/*/*/*",
+				"*://qastack.info.tr/*/*/*",
+				"*://qastack.co.in/*/*/*",
+				"*://qastack.jp/*/*/*",
+				"*://qastack.id/*/*/*",
+				"*://qastack.com.ua/*/*/*",
+				"*://qastack.kr/*/*/*",
+				"*://qastack.net.bd/*/*/*",
+				"*://qastack.lk/*/*/*"
 			],
-			"js": [
-				"main.js"
-			]
+			"js": ["main.js"]
 		}
 	],
 	"browser_specific_settings": {

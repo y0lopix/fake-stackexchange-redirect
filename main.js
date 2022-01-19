@@ -6,8 +6,8 @@ let hostname;
 let hostParts = currentLocation.host.split(".");
 let pathParts = currentLocation.pathname.split("/");
 
-// If the current page is a question page on QAStack
-if ( hostParts[0] === "qastack" && hostParts.length === 2 && pathParts.length > 3 ) {
+// If the current page in this host matches the pattern /forumName/questionId/... 
+if ( pathParts.length > 3 && !isNaN(pathParts[2]) ) {
 	questionId = pathParts[2];
 
 	hostname = ( function() {
@@ -25,5 +25,3 @@ if ( hostParts[0] === "qastack" && hostParts.length === 2 && pathParts.length > 
 
 if (questionId != null)
 	window.location.replace("https://" + hostname + "/questions/" + questionId);
-else
-	console.log("not redirecting")
