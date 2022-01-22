@@ -12,25 +12,27 @@ Currently, only QA Stack is supported. Compatibility will be extended to more we
 
 Download this extension from [Firefox Add-ons](https://addons.mozilla.org/firefox/addon/fake-stackexchange-redirect/)
 
-For other browsers, the unsigned extension is also available in the [releases](https://github.com/y0lopix/fake-stackexchange-redirect/releases/latest).
+For other browsers (chromium-based), the extension (unsigned ZIP file) is also available in the [releases](https://github.com/y0lopix/fake-stackexchange-redirect/releases/latest). To install it, go to `chrome://extensions`, toggle the developer mode on and drag the ZIP file on the page.
 
 
-## Build
+## Build instructions
 
 ### Prerequisites
 
-- GNU Make
-- [Oxipng](https://github.com/shssoichiro/oxipng) (to optimize icons)
-- Inkscape (to create PNG icons for Chromium browsers)
-- Info-ZIP's Zip (to pack files in a zip file)
-- [terser](https://github.com/terser/terser) (to minify JS files)
-- [jq](https://github.com/stedolan/jq) (to minify JSON files)
-- [web-ext](https://github.com/mozilla/web-ext) (to check the validity of the source)
+Provided versions are for reference only, you can probably use any version of these programs.
+
+- GNU Make 4.3
+- [Oxipng](https://github.com/shssoichiro/oxipng) 5.0.1 (to optimize icons)
+- Inkscape 1.1.1 (to create PNG icons for Chromium browsers)
+- Info-ZIP's Zip 3.0 (to pack files in a zip file)
+- [terser](https://github.com/terser/terser) 5.10.0 (to minify JS files)
+- [jq](https://github.com/stedolan/jq) 1.6 (to minify JSON files)
+- [web-ext](https://github.com/mozilla/web-ext) 6.6.0 (to check the validity of the source)
 
 ### Build the extension
 
 ```sh
-make
+make build
 ```
 
-The extension will be built in the `out` folder.
+The built extension will be output to `out/fake-stackexchange-redirect.zip`.
