@@ -8,6 +8,7 @@ let pathParts = currentLocation.pathname.split("/");
 
 // If the current page in this host matches the pattern /forumName/questionId/... 
 if ( pathParts.length > 3 && !isNaN(pathParts[2]) ) {
+	window.stop();
 	questionId = pathParts[2];
 
 	hostname = ( function() {

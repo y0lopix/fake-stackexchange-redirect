@@ -8,7 +8,7 @@ CONTENTS=$(addprefix $(OUT_DIR)/, manifest.json main.js icon-48.png icon-96.png)
 build: $(OUT_DIR)/$(NAME).zip
 
 $(OUT_DIR)/$(NAME).zip: $(CONTENTS)
-	zip -FSj $@ $^
+	zip -9FSj $@ $^
 	
 $(OUT_DIR)/icon-%_unoptimized.png: icon.svg $(OUT_DIR)
 	inkscape -w $* -h $* -o $@ $<
