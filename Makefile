@@ -29,5 +29,5 @@ $(OUT_DIR):
 clean:
 	rm -rf $(OUT_DIR)
 	
-check:
-	web-ext lint
+check: $(CONTENTS)
+	web-ext lint -s $(OUT_DIR) -i *.zip
