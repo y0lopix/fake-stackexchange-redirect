@@ -1,33 +1,45 @@
+### VARIABLES
+
 NAME := fake-stackexchange-redirect
 OUT_DIR := out
-CONTENTS := $(addprefix $(OUT_DIR)/, main.js manifest.json icon-48.png icon-96.png)
 
-.PHONY: clean check build
+# The list of all buildable variants
+ALL_VARIANTS := firefox chromium-v3 chromium-v2
 
-build: $(OUT_DIR)/$(NAME).zip
+# The files that should be the same for all variants
+CONTENTS_BASE := $(OUT_DIR)/main.js
 
-$(OUT_DIR)/$(NAME).zip: $(CONTENTS)
-	zip -9FSj $@ $^
+### TARGETS
+.PHONY: clean check build all
+
+# Make all variants
+all: $(addprefix $(OUT_DIR)/$(NAME)-, $(addsuffix .zip, $(ALL_VARIANTS) ) )
 	
-$(OUT_DIR)/icon-%_unoptimized.png: icon.svg
+# Final output ZIP: Firefox
+$(OUT_DIR)/$(NAME)-firefox.zip: $(CONTENTS_BASE) icon.svg $(OUT_DIR)/firefox/manifest.json
+	zip -9FSj $@ $^
+
+# Final output ZIP: Chromium (manifest v2 and v3)
+$(OUT_DIR)/$(NAME)-chromium%.zip: $(CONTENTS_BASE) $(OUT_DIR)/icon-48.png $(OUT_DIR)/icon-96.png $(OUT_DIR)/chromium%/manifest.json
+	zip -9FSj $@ $^
+
+# Specific manifest
+$(OUT_DIR)/%/manifest.json: manifest.json manifest-%.json | $(OUT_DIR)/%
+	jq -cs '.[0] * .[1]' $^ > $@
+
+# PNG icons for Chromium
+$(OUT_DIR)/icon-%.png: icon.svg
 	inkscape -w $* -h $* -o $@ $<
+	oxipng -o max --strip all -Z $@
 
-$(OUT_DIR)/icon-%.png: $(OUT_DIR)/icon-%_unoptimized.png
-	oxipng -o max --strip all -Z --out $@ $<
-
+# Minify JS
 $(OUT_DIR)/%.js: %.js
 	terser -cm --mangle-props --toplevel -o $@ $<
 
-$(OUT_DIR)/%.json: %.json
-	jq -c . < $< > $@
-	
-$(CONTENTS): | $(OUT_DIR)
+$(CONTENTS_BASE): | $(OUT_DIR)
 
-$(OUT_DIR):
+$(OUT_DIR) $(addprefix $(OUT_DIR)/, $(ALL_VARIANTS)):
 	mkdir $@
 
 clean:
 	rm -rf $(OUT_DIR)
-	
-check: $(CONTENTS)
-	web-ext lint -s $(OUT_DIR) -i *.zip

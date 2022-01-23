@@ -1,0 +1,12 @@
+{
+	"manifest_version": 2,
+	"icons": {
+		"48": "icon.svg",
+		"96": "icon.svg"
+	},
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "fake-stackoverflow-redirect@yolopix.net"
+		}
+	}
+}

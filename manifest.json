@@ -1,14 +1,9 @@
 {
-	"manifest_version": 2,
 	"name": "Fake Stack Exchange redirect",
 	"short_name": "SE redirect",
-	"version": "1.1.0",
+	"version": "1.2.0",
 	"description": "Redirect fake websites translating Stack Exchange forums questions to the official website",
 	"author": "Yolopix",
-	"icons": {
-		"48": "icon-48.png",
-		"96": "icon-96.png"
-	},
 	"content_scripts": [
 		{
 			"matches": [
@@ -34,10 +29,5 @@
 			"js": ["main.js"],
 			"run_at": "document_start"
 		}
-	],
-	"browser_specific_settings": {
-		"gecko": {
-			"id": "fake-stackoverflow-redirect@yolopix.net"
-		}
-	}
+	]
 }

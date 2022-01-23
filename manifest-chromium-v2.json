@@ -1,0 +1,7 @@
+{
+	"manifest_version": 2,
+	"icons": {
+		"48": "icon-48.png",
+		"96": "icon-96.png"
+	}
+}
