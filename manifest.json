@@ -6,6 +6,12 @@
 	"description": "__MSG_extensionDescription__",
 	"author": "Yolopix",
 	"default_locale": "en",
+	"icons": {
+		"16": "icon-16.png",
+		"48": "icon-48.png",
+		"96": "icon-96.png",
+		"128": "icon-128.png"
+	},
 	"declarative_net_request": {
 		"rule_resources": [{
 			"id": "main_ruleset",
