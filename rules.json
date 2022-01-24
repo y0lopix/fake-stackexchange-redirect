@@ -1,0 +1,14 @@
+[
+	{
+		"id": 1,
+		"action": {
+			"type": "redirect",
+			"redirect": { "regexSubstitution": "https://stackoverflow.com/questions/\\1" }
+		},
+		"condition": {
+			"regexFilter": "^http.:\/\/qa.?stack\\.(?:fr|ru|mx|cn|com\\.br|it|vn|com\\.de|in\\.th|info\\.tr|co\\.in|jp|id|com\\.ua|kr|net\\.bd|lk)\/progr.+\/(\\d+\/.*)", // complexity and size of the regex too limited by chrome
+			"requireCapturing": true,
+			"resourceTypes": ["main_frame"]
+		}
+	}
+]

@@ -1,34 +1,39 @@
 {
+	"manifest_version": 3,
 	"name": "__MSG_extensionName__",
 	"short_name": "__MSG_extensionShortName__",
-	"version": "1.2.0",
+	"version": "2.0.0",
 	"description": "__MSG_extensionDescription__",
 	"author": "Yolopix",
 	"default_locale": "en",
-	"content_scripts": [
-		{
-			"matches": [
-				"*://qastack.fr/*/*/*",
-				"*://qastack.ru/*/*/*",
-				"*://qastack.mx/*/*/*",
-				"*://qastack.cn/*/*/*",
-				"*://qastack.com.br/*/*/*",
-				"*://qastack.it/*/*/*",
-				"*://qastack.vn/*/*/*",
-				"*://qastack.com.de/*/*/*",
-				"*://qa-stack.pl/*/*/*",
-				"*://qastack.in.th/*/*/*",
-				"*://qastack.info.tr/*/*/*",
-				"*://qastack.co.in/*/*/*",
-				"*://qastack.jp/*/*/*",
-				"*://qastack.id/*/*/*",
-				"*://qastack.com.ua/*/*/*",
-				"*://qastack.kr/*/*/*",
-				"*://qastack.net.bd/*/*/*",
-				"*://qastack.lk/*/*/*"
-			],
-			"js": ["main.js"],
-			"run_at": "document_start"
-		}
+	"declarative_net_request": {
+		"rule_resources": [{
+			"id": "main_ruleset",
+			"enabled": true,
+			"path": "rules.json"
+		}]
+	},
+	"permissions": [
+		"declarativeNetRequest"
+	],
+	"host_permissions": [
+		"*://qastack.fr/*/*/*",
+		"*://qastack.ru/*/*/*",
+		"*://qastack.mx/*/*/*",
+		"*://qastack.cn/*/*/*",
+		"*://qastack.com.br/*/*/*",
+		"*://qastack.it/*/*/*",
+		"*://qastack.vn/*/*/*",
+		"*://qastack.com.de/*/*/*",
+		"*://qa-stack.pl/*/*/*",
+		"*://qastack.in.th/*/*/*",
+		"*://qastack.info.tr/*/*/*",
+		"*://qastack.co.in/*/*/*",
+		"*://qastack.jp/*/*/*",
+		"*://qastack.id/*/*/*",
+		"*://qastack.com.ua/*/*/*",
+		"*://qastack.kr/*/*/*",
+		"*://qastack.net.bd/*/*/*",
+		"*://qastack.lk/*/*/*"
 	]
 }
