@@ -1,0 +1,11 @@
+{
+	"extensionName": {
+		"message": "Fake Stack Exchange redirect"
+	},
+	"extensionShortName": {
+		"message": "SE redirect"
+	},
+	"extensionDescription": {
+		"message": "Redirect websites translating Stack Exchange forums to the official website."
+	}
+}

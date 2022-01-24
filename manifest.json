@@ -1,9 +1,10 @@
 {
-	"name": "Fake Stack Exchange redirect",
-	"short_name": "SE redirect",
+	"name": "__MSG_extensionName__",
+	"short_name": "__MSG_extensionShortName__",
 	"version": "1.2.0",
-	"description": "Redirect fake websites translating Stack Exchange forums questions to the official website",
+	"description": "__MSG_extensionDescription__",
 	"author": "Yolopix",
+	"default_locale": "en",
 	"content_scripts": [
 		{
 			"matches": [
