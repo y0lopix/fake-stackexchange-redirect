@@ -12,6 +12,7 @@
 		"96": "icon-96.png",
 		"128": "icon-128.png"
 	},
+	"minimum_chrome_version": "96",
 	"declarative_net_request": {
 		"rule_resources": [{
 			"id": "main_ruleset",
@@ -20,7 +21,7 @@
 		}]
 	},
 	"permissions": [
-		"declarativeNetRequest"
+		"declarativeNetRequestWithHostAccess"
 	],
 	"host_permissions": [
 		"*://qastack.fr/*/*/*",
